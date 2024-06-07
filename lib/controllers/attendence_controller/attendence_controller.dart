@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -102,39 +101,58 @@ class AttendanceController extends GetxController {
   }
 
   Future<void> sendPushMessage(String token, String body, String title) async {
-    log("messageOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-    try {
-      final reponse = await http.post(
-        Uri.parse('https://fcm.googleapis.com/fcm/send'),
-        headers: <String, String>{
-          'Content-Type': 'application/json',
-          'Authorization':
-              'key=AAAAT5j1j9A:APA91bEDY97KTVTB5CH_4YTnLZEol4Z5fxF0fmO654V7YJO6dL9TV_PyIfv64-pVDx477rONsIl8d63VjxT793_Tj4zuGg32JTy_wUNQ4OhGNbr0KOS2i4z7JaG-ZtENTBpYnEGh-ZLg'
+    const serverKey ='ya29.c.c0AY_VpZg1xsoBNdQZz6F5A7zVyvh4gRNjCnNsk7wyl4a42dmr91B4B-qv6SpwohqyNzT7-TZEHRpc_h3b3PBI2241U7RUgenNxTj_hab8pvkARqwXuMj0EbwQaN0ANsINqlWcIO-GFkMtmU2ZDzDuefeNhXsRastTV5dnhm1csqyc9G09dGx7XKwwINQV1zpbUOIsYhiNhN2hWZjbRyQ6YKBdozoycYll8FLe3ZPws3lpI8BybaGuISzduq5rK3b8BjAIr-NE5mUJZsAMqsKXWiUTk80hg-XNc01DTCcdVs-TrchQTOLIBDsSXUxo6FLPqHxdhNSXowPebpjirrR358gpV8OEAOlOxQRukCFAFcylIuoDrXX8OeNIG385AM4nFu_9F8nS_7klMwyf1QYagFr7d1jRRhthycMFvbmM_arUct4UfFVslfyvtztwJ9B938ncn2QY9Ut522F36iWsyYmQw7pyX39jYaOJyrfijy7imO8QBO7dd32xgXtibg5QFRB-BSQSOY9t61tRgtr8WaMBkZ-hUoVO0dp0zJImhm8lVSdy-U4QX033heovk59ofXW8tBxhSJVnwc6xeyXZYMOdJcXZRJZv5_aJzI8npnYeVRdFXa8vb0OosqYIg_5joFJzoy4jk2hzryl63iMJbbvQY5Imc2ewBr40UyptlXnomuMmjJFmmRFO96cXImhnv9xFiZu8smoJrm4Z7Ymav5vrUxbyhI5678Ju7F1vucQ965azj-qcO9OdcshOX_2axpVaiohlrj1-Q80i4_8cUXYSdes-mzg3UhpbS_sQmXYj2duQXjVnxrXUMBz1kR80pckqkqnv7IroIq_M0UopcjoiJIWnkaZM4Ve-tagMRVzx11lOiOXbJreoweMBUqR_z_VRJsVXpwFsb4vyBuRVpXII-7O77dyj81zo9Uku_I7U7kgfXm7zqYZV5YzsUl_Wb46yhBm6QebOm2I5XQ_Bb8Ucv1n1I8tJXZJ0q8Xpkci7qr2Yv0d_bj8';
+  final Uri url = Uri.parse(
+      'https://fcm.googleapis.com/v1/projects/little-flower-mananthavady-j-5/messages:send');
+
+  final Map<String, dynamic> message = {
+    'message': {
+      'token': token,
+      'notification': {
+        'title': title,
+        'body': body,
+      },
+      'android': {
+        'notification': {
+          'title': 'Breaking News',
+          'body': 'Check out the Top Story.',
+          'click_action': 'TOP_STORY_ACTIVITY'
         },
-        body: jsonEncode(
-          <String, dynamic>{
-            'priority': 'high',
-            'data': <String, dynamic>{
-              'click_action': 'FLUTTER_NOTIFICATION_CLICK',
-              'status': 'done',
-              'body': body,
-              'title': title,
-            },
-            "notification": <String, dynamic>{
-              'title': title,
-              'body': body,
-              'android_channel_id': 'high_importance_channel'
-            },
-            'to': token,
-          },
-        ),
-      );
-      log(reponse.body.toString());
-    } catch (e) {
-      if (kDebugMode) {
-        log("error push Notification");
-      }
+        'data': {'story_id': 'story_12345'}
+      },
+      'apns': {
+        'payload': {
+          'aps': {'category': 'NEW_MESSAGE_CATEGORY'}
+        },
+      },
+      'data': {
+        'click_action': 'FLUTTER_NOTIFICATION_CLICK',
+        'status': 'done',
+        'body': body,
+        'title': title,
+      },
+    },
+  };
+
+  try {
+    final response = await http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $serverKey',
+      },
+      body: jsonEncode(message),
+    );
+
+    if (response.statusCode == 200) {
+      print('Notification sent successfully!');
+    } else {
+      print('Failed to send notification: ${response.statusCode}');
+      print('Response body: ${response.body}');
     }
+  } catch (e) {
+    print('Exception caught sending notification: $e');
+  }
   }
 
   Future<void> getNotificationTimer() async {

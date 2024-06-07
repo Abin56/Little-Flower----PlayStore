@@ -60,7 +60,7 @@ android {
         multiDexEnabled true
         minSdkVersion 24
     }
-    signingConfigs {
+        signingConfigs {
      release {
          keyAlias keystoreProperties['keyAlias']
          keyPassword keystoreProperties['keyPassword']
@@ -68,6 +68,7 @@ android {
          storePassword keystoreProperties['storePassword']
      }
     }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
@@ -82,5 +83,5 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.11.0'
+        implementation 'com.google.android.material:material:1.11.0'
 }

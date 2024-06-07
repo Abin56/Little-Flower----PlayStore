@@ -16,7 +16,7 @@ import 'package:little_flower/widgets/custom_showDilog/custom_showdilog.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ApplicationController extends GetxController {
-  RxString currentversion = '1.0.0+1'.obs;
+  RxString currentversion = '1.0.0+2'.obs;
   RxString latestVersion = ''.obs;
   RxString playstorelink = ''.obs;
   RxString message = ''.obs;

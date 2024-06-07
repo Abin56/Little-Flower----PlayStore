@@ -53,10 +53,10 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDGKgt_xDrx9tyxhrpeBqQSN-xgr83XSDY',
-    appId: '1:270967599909:android:1412cf4b025a56a497a0cc',
-    messagingSenderId: '270967599909',
-    projectId: 'little-flower-mananthavady-j-5',
-    storageBucket: 'little-flower-mananthavady-j-5.appspot.com',
+    apiKey: 'AIzaSyAaCvr1SSOWfgwAGhfuwgIbRrUpULOkoAU',
+    appId: '1:10906000935:android:fbb636f6bf1491f360b802',
+    messagingSenderId: '10906000935',
+    projectId: 'little-flower-bb60b',
+    storageBucket: 'little-flower-bb60b.appspot.com',
   );
 }
