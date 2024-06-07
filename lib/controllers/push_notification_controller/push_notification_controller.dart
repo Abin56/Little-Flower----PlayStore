@@ -12,8 +12,7 @@ import 'package:little_flower/utils/utils.dart';
 import 'package:little_flower/view/constant/sizes/constant.dart';
 
 class PushNotificationController extends GetxController {
-  final currentUID =UserCredentialsController.currentUSerID??"";
-
+  final currentUID = UserCredentialsController.currentUSerID ?? "";
 
   RxString deviceID = ''.obs;
   Future<void> getUserDeviceID() async {
@@ -24,7 +23,7 @@ class PushNotificationController extends GetxController {
   }
 
   Future<void> allUSerDeviceID(String userrole) async {
-      log('>>>>>$currentUID');
+    log('>>>>>$currentUID');
     log('>>>>>User Role ${UserCredentialsController.userRole}');
     print('allUSerDeviceID');
     print('allUSerDeviceID  $currentUID');
@@ -286,5 +285,21 @@ class PushNotificationController extends GetxController {
           .doc(docid)
           .set(details.toMap());
     } catch (e) {}
+  }
+RxString pushNotficationKey=''.obs;
+  getPushNotification() async {
+    FirebaseFirestore.instance
+        .collection('PushNotification')
+        .doc('key')
+        .get()
+        .then((value) async {
+        pushNotficationKey.value = value.data()?['key'];
+
+        });
+  }
+@override
+  void onInit() {
+  getPushNotification();
+    super.onInit();
   }
 }

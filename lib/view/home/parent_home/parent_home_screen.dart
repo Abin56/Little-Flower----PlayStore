@@ -5,6 +5,8 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'package:little_flower/controllers/attendence_controller/attendence_controller.dart';
 import 'package:little_flower/controllers/push_notification_controller/push_notification_controller.dart';
 import 'package:little_flower/controllers/userCredentials/user_credentials.dart';
 import 'package:little_flower/local_database/parent_login_database.dart';
@@ -40,15 +42,14 @@ class ParentHomeScreen extends StatefulWidget {
 
   final PushNotificationController pushNotCntrl =
       Get.put(PushNotificationController());
-
+  final AttendanceController attendanceController =
+      Get.put(AttendanceController());
   State<ParentHomeScreen> createState() => _ParentHomeScreenState();
 }
 
 class _ParentHomeScreenState extends State<ParentHomeScreen> {
   MultipileStudentsController multipileStudentsController =
       Get.put(MultipileStudentsController());
-
-
 
   @override
   void initState() {
@@ -58,11 +59,11 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
       await widget.pushNotCntrl.allParentDeviceID();
     });
     super.initState();
-
   }
 
   Widget build(BuildContext context) {
-    
+    callCloudFunction();
+
     log("Parent DOCID :::::::::::::::::::  ${UserCredentialsController.parentModel?.docid}");
     log("Firebase Auth DOCID :::::::::::::::::::  ${FirebaseAuth.instance.currentUser?.uid}");
     final parentAuth = DBParentLogin(
@@ -190,7 +191,7 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
               .parentModel!.studentID!), ////// exam result............7
       NoticePage(), //Notice.........8
       const EventList(), //Events.................9
-        SchoolLevelMeetingPage(), ////////////////////////////10
+      SchoolLevelMeetingPage(), ////////////////////////////10
 
       const ParentChatScreen(), /////......11
       AllClassTestPage(
@@ -263,6 +264,29 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
           ),
         ),
         backgroundColor: Colors.white);
+  }
+
+  void callCloudFunction() async {
+    widget.attendanceController.sendPushMessage(
+        'cCrQlTuPSHm1ywbPm4Tgj1:APA91bGhkzaui5X2bWOeeiefBhI_FsBe3GqW3ZyOcdkhRUMDe0zWhYniHnEPHFQwZsla3YuLdJXMih0y8WUQuP8fxtdIv3iqE285SymTVrF4_eMqYJge0KJx9sI7xp3KIgFUn8roZIfw',
+        "body",
+        "title");
+    try {
+      // Replace 'YOUR_CLOUD_FUNCTION_URL' with the URL of your Cloud Function
+      var url = Uri.parse(
+          'https://us-central1-little-flower-bb60b.cloudfunctions.net/attendanceListener');
+
+      var response = await http.post(url);
+      log("response  ${response.body}");
+      if (response.statusCode == 200) {
+        log('Cloud Function executed successfully');
+        // log(response.body.toString());
+      } else {
+        log('Failed to execute Cloud Function: ${response.statusCode}');
+      }
+    } catch (error) {
+      log('Error calling Cloud Function: $error');
+    }
   }
 }
 
