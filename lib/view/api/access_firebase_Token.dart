@@ -1,4 +1,4 @@
-import 'package:googleapis_auth/auth_io.dart';
+
 
 class AccessTokenFirebase {
   static String firebaseMessagingScope =
@@ -22,12 +22,12 @@ class AccessTokenFirebase {
   ///     expected format.
 
   Future<String> getAccessToken() async {
-    final client = await clientViaServiceAccount(
-        ServiceAccountCredentials.fromJson({
+    // final client = await clientViaServiceAccount(
+    //     ServiceAccountCredentials.fromJson({
        
-        }),
-        [firebaseMessagingScope]);
-    final String accessToken = client.credentials.accessToken.data;
-    return accessToken;
+    //     }),
+    //     [firebaseMessagingScope]);
+    // final String accessToken = client.credentials.accessToken.data;
+    return "";
   }
 }
