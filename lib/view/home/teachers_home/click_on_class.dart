@@ -134,7 +134,7 @@ class ClickOnClasss extends StatelessWidget {
       // Meetings
       RecordedClassMainPage(), // recorded class
 
-      BusRouteListPage(),
+      //BusRouteListPage(),
       ClassTestPage(),
       ClassMonthlyTestPage(), //class test monthly
 
@@ -385,7 +385,7 @@ List<Widget> hasDataImages = [
   const ImageContainer(image: "assets/flaticons/school-material.png"),
   const ImageContainer(image: "assets/flaticons/meeting.png"),
   const ImageContainer(image: "assets/flaticons/recording.png"),
-  const ImageContainer(image: "assets/flaticons/route (1).png"),
+//  const ImageContainer(image: "assets/flaticons/route (1).png"),
   const ImageContainer(image: "assets/flaticons/exam.png"),
   const ImageContainer(image: "assets/flaticons/test.png"),
   const ImageContainer(image: "assets/flaticons/icons8-teacher-100.png"),
@@ -405,7 +405,7 @@ List<String> hasDataText = [
   'Study Materials'.tr,
   'Meetings'.tr,
   'Recorded Classes'.tr,
-  'Bus Route'.tr,
+ // 'Bus Route'.tr,
   'Class Test'.tr,
   'Monthly Class Test'.tr,
   'Live Class'.tr,

@@ -1,7 +1,103 @@
+// import 'package:flutter/material.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:vidyaveechi_website/view/colors/colors.dart';
+
+
+// class PrivacyPolicy extends StatefulWidget {
+//   const PrivacyPolicy({super.key});
+//   static const String route = '/privacypolicy';
+
+//   @override
+//   State<PrivacyPolicy> createState() => _PrivacyPolicyState();
+// }
+
+// class _PrivacyPolicyState extends State<PrivacyPolicy> {
+//   @override
+//   Widget build(BuildContext context) {
+//     var screenSize = MediaQuery.of(context).size;
+//     return Scaffold(
+//       backgroundColor: adminePrimayColor,
+//       appBar: AppBar(
+//           iconTheme: const IconThemeData(color: cWhite),
+//           backgroundColor: adminePrimayColor,
+//           title: Wrap(
+//             children: [
+//               // GoogleMonstserratWidgets(
+//               //   text: "Privacy Policy",
+//               //   fontsize: 15.w,
+//               // ),
+//               Text(
+//                 "Privacy Policy",
+//                 maxLines: 2,
+//                 // overflow: TextOverflow.clip,
+//                 style: GoogleFonts.montserrat(
+//                   // letterSpacing: letterSpacing,
+//                   fontSize: 15,
+//                   fontWeight: FontWeight.w500,
+//                   color: Colors.white70,
+//                 ),
+//               )
+//             ],
+//           )),
+//       body: SingleChildScrollView(
+//         child: Center(
+//           child: SizedBox(
+//             width: screenSize.width * .9,
+//             child: Column(
+//               children: [
+//                 Image.network(
+//                   "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%201.jpg?alt=media&token=557841f6-357b-467b-83e3-a89c2d5a631b",
+//                 ),
+
+//                 ////////////1
+//                 Image.network(
+//                   "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%202.jpg?alt=media&token=c0169af7-77fe-44b5-97df-c0a65b97b476",
+//                 ),
+//                 /////////////2
+//                 Image.network(
+//                   "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%203.jpg?alt=media&token=49baf70d-346d-42ef-aa58-8ebbe665ca09",
+//                 ),
+//                 //////////////3
+//                 Image.network(
+//                   "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%204.jpg?alt=media&token=1deb3826-4397-4ffa-93ce-b887d44104f4",
+//                 ),
+//                 /////////////////4
+//                 Image.network(
+//                   "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%205.jpg?alt=media&token=b3913f7e-9d62-44c8-b0e5-4ebe3edc9cb3",
+//                 ),
+//                 //////////////5
+//                 Image.network(
+//                   "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%206%20to%20edit.jpg?alt=media&token=abaaeace-1e80-404e-97e0-a84e539f93cb",
+//                 ),
+//                 /////////////////6
+//                 Image.network(
+//                   "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%207.jpg?alt=media&token=c08fa12d-ffa4-4f27-9f2d-46f3c2f060d1",
+//                 ),
+//                 ////////////////7
+//                 Image.network(
+//                   "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fchild%20policy%201.jpg?alt=media&token=5d3a5ddb-6006-4817-9b8e-0af697f00cb2",
+//                 ),
+//                 //////////////8
+//                 Image.network(
+//                   "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fchild%20policy%202.jpg?alt=media&token=76204174-3c2a-4c17-b8d3-144f03aab3df",
+//                 ),
+//                 /////////////9
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:little_flower/view/colors/colors.dart';
 import 'package:little_flower/view/widgets/fonts/google_poppins.dart';
+import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 
 class PrivacyPolicy extends StatefulWidget {
   const PrivacyPolicy({super.key});
@@ -38,7 +134,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
               )
             ],
           )),
-      body: SingleChildScrollView(
+      body:SingleChildScrollView(
         child: Center(
           child: SizedBox(
             width: screenSize.width * .9,
@@ -81,7 +177,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                 ),
                 GooglePoppinsWidgets(
                   text:
-                      'Definitions \nFor the purposes of this Privacy Policy:\n\nAccount-means a unique account created for You to access our Service or parts ofour Service.\n\nCompany-(referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Lepton plus communications(opc) pvt ltd, 5thFloor,Karimpanal Statue Avenue, General Hospital Rd, Opposite Secretariat,Palayam, Thiruvananthapuram, Kerala 695001\n\n Cookies -are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses. \n\nCountry-refers to: Kerala, India\n\n Device- means any device that can access the Service- such as a computer, a cellphone or a digital tablet. \n\nPersonal Data-is any information that relates to an identified or identifiable individual.\n\n Service- refers to the Website. \n\nService Provider-means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.\n\nUsage Data refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).\n\nWebsite refers to Lepton DUJO, accessible from https://vidyaveechi_website.com/\nYou means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.',
+                      'Definitions \nFor the purposes of this Privacy Policy:\n\nAccount-means a unique account created for You to access our Service or parts ofour Service.\n\nCompany-(referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to 📌 Little Flower English Medium L P School Mananthavady \nWayanad - 670 645, Kerala,India\n📞 	04935 243881\n ✉️ lfemlpmananthavady@gmail.com\n\n Cookies -are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses. \n\nCountry-refers to: Kerala, India\n\n Device- means any device that can access the Service- such as a computer, a cellphone or a digital tablet. \n\nPersonal Data-is any information that relates to an identified or identifiable individual.\n\n Service- refers to the Website. \n\nService Provider-means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.\n\nUsage Data refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).\n\nWebsite refers to Little Flower, accessible from https://littleflower.com/\nYou means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.',
                   fontsize: 14,
                   color: cWhite,
                 ),
@@ -350,7 +446,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   height: 10,
                 ),
                 GooglePoppinsWidgets(
-                  text: 'If you have any questions about this Privacy Policy, You can contact us:\n\nBy email: info@vidyaveechi_website.com\n\nBy visiting this page on our website:  https://vidyaveechi_website.com/\n\nBy phone number: +91 9746366651, +91 9746966651\n\nBy mail:\n\nLepton plus communications(opc) pvt ltd,\n\n5th Floor,Karimpanal Statue Avenue, General Hospital Rd,\n\nOpposite Secretariat, Palayam, Thiruvananthapuram, Kerala 695001',
+                  text: 'If you have any questions about this Privacy Policy, You can contact us:\n\nBy email: lfemlpmananthavady@gmail.com\n\nBy visiting this page on our website:  https://littleflower.com/\n\nBy phone number: 	04935 243881\n\nBy mail:\n\n📌 Little Flower English Medium L P School Mananthavady \nWayanad - 670 645, Kerala,India\n📞 	04935 243881\n ✉️ lfemlpmananthavady@gmail.com',
                   fontsize: 14,
                   color: cWhite,
                  
@@ -365,16 +461,3 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
     );
   }
 }
-
-
-const photoList = [
-  'https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%201.jpg?alt=media&token=557841f6-357b-467b-83e3-a89c2d5a631b',
-  'https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%202.jpg?alt=media&token=c0169af7-77fe-44b5-97df-c0a65b97b476',
-  'https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%203.jpg?alt=media&token=49baf70d-346d-42ef-aa58-8ebbe665ca09',
-  'https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%204.jpg?alt=media&token=1deb3826-4397-4ffa-93ce-b887d44104f4',
-  'https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%205.jpg?alt=media&token=b3913f7e-9d62-44c8-b0e5-4ebe3edc9cb3',
-  'https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%206.jpg?alt=media&token=1c5c2e8b-d77c-4753-9e4b-557a0d67573a',
-  'https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fprivacy%207.jpg?alt=media&token=c08fa12d-ffa4-4f27-9f2d-46f3c2f060d1',
-  'https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fchild%20policy%201.jpg?alt=media&token=5d3a5ddb-6006-4817-9b8e-0af697f00cb2',
-  'https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/files%2Fprivacy%20and%20policy%2Fchild%20policy%202.jpg?alt=media&token=76204174-3c2a-4c17-b8d3-144f03aab3df'
-];
